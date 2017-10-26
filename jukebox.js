@@ -4,7 +4,8 @@ client_id: 'fd4e76fc67798bfa742089ed619084a6'
  // call juke box 
 let myJukeBox; 
   document.addEventListener("DOMContentLoaded", function(){
-  myJukeBox = new Jukebox(document.getElementById("jukebox"));
+  //myJukeBox = new Jukebox(document.getElementById("jukebox"));
+  myJukebox = new Jukebox(document.getElementById("jukebox"));
 });
 
 function Jukebox(element){
@@ -19,7 +20,6 @@ function Jukebox(element){
   //--------------------------
   this.htmlElements = {
     container: element,
-    audio:element.querySelector("audio"),
     controls: element.querySelector(".controls"),
     info: element.querySelector(".info")
   };
@@ -72,9 +72,7 @@ forward: function(){
     this.play();
    },
 updateUI: function(){
-    this.htmlElements.info.innerText = this.songs[this.currentSong].name;
-    this.htmlElements.audio.src = `mp3/${this.songs[this.currentSong].file}`;
-
+    this.htmlElements.info.innerText = this.songs[this.currentSong].description;
    }
  }
 
